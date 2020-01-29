@@ -1,0 +1,100 @@
+context incoming {
+	s => HangUp();
+	
+        210058 => {
+                if("${CALLERID(num)}" = "79629574415"){
+                        HangUp();
+                };
+		Set(company=210058);
+                Set(CDR(company)=${company});
+                ifTime(9:00-18:59|mon-fri|*|*) {
+                        jump s@IVR-Working;
+                } else ifTime (10:00-14:59|sat|*|*) {
+                        jump s@IVR-Working;
+                } else {
+                        jump s@IVR-Holidays;
+                };
+        };
+        
+	800IP_11192611_line001 => {
+        	if("${CALLERID(num)}" = "79629574415"){
+                        HangUp();
+                };
+		Set(company=futbitex);
+                Set(CDR(company)=${company});
+                ifTime(9:00-17:59|mon-fri|*|*) {
+                        jump s@IVR-Working;
+                } else {
+                        jump s@IVR-Holidays;
+                };
+	};
+
+	800IP_11850264_1_line001 => {
+                if("${CALLERID(num)}" = "79629574415"){
+                        HangUp();
+                };
+                Set(company=allcolors);
+                Set(CDR(company)=${company});
+                ifTime(9:00-17:59|mon-fri|*|*) {
+                        jump s@IVR-Working;
+                } else {
+                        jump s@IVR-Holidays;
+                };
+        };
+
+	800IP_11850264_2_line001 => {
+                if("${CALLERID(num)}" = "79629574415"){
+                        HangUp();
+                };
+                Set(company=strein);
+                Set(CDR(company)=${company});
+                ifTime(9:00-17:59|mon-fri|*|*) {
+                        jump s@IVR-Working;
+                } else {
+                        jump s@IVR-Holidays;
+                };
+        };
+	
+	800IP_11850264_3_line001 => {
+                if("${CALLERID(num)}" = "79629574415"){
+                        HangUp();
+                };
+                Set(company=n1sport);
+                Set(CDR(company)=${company});
+                ifTime(9:00-17:59|mon-fri|*|*) {
+                        jump s@IVR-Working;
+                } else {
+                        jump s@IVR-Holidays;
+                };
+        };
+
+	210041 => {
+                if("${CALLERID(num)}" = "79629574415"){
+                        HangUp();
+                };
+		Set(company=210041);
+                Set(CDR(company)=${company});
+                ifTime(9:00-17:59|mon-fri|*|*) {
+                        jump s@IVR-Working;
+                } else {
+                        jump s@IVR-Holidays;
+                };
+	};			
+	210059 => {
+                if("${CALLERID(num)}" = "79629574415"){
+                        HangUp();
+                };
+		Set(company=210059);
+                Set(CDR(company)=${company});
+                ifTime(9:00-17:59|mon-fri|*|*) {
+                        jump s@IVR-Working;
+                } else {
+                        jump s@IVR-Holidays;
+                };
+	};			
+
+				
+	i => HangUp();
+
+	h => hangUp();
+};
