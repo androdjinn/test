@@ -1,21 +1,7 @@
 context incoming {
 	s => HangUp();
 	
-        210058 => {
-                if("${CALLERID(num)}" = "79629574415"){
-                        HangUp();
-                };
-		Set(company=210058);
-                Set(CDR(company)=${company});
-                ifTime(9:00-18:59|mon-fri|*|*) {
-                        jump s@IVR-Working;
-                } else ifTime (10:00-14:59|sat|*|*) {
-                        jump s@IVR-Working;
-                } else {
-                        jump s@IVR-Holidays;
-                };
-        };
-        
+                
 	800IP_11192611_line001 => {
         	if("${CALLERID(num)}" = "79629574415"){
                         HangUp();
