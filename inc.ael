@@ -80,19 +80,7 @@ context incoming {
                         jump s@IVR-Holidays;
                 };
 	};			
-	210059 => {
-                if("${CALLERID(num)}" = "79629574415"){
-                        HangUp();
-                };
-		Set(company=210059);
-                Set(CDR(company)=${company});
-                ifTime(9:00-17:59|mon-fri|*|*) {
-                        jump s@IVR-Working;
-                } else {
-                        jump s@IVR-Holidays;
-                };
-	};			
-
+	
 				
 	i => HangUp();
 
