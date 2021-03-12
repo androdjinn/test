@@ -2,38 +2,11 @@ context incoming {
 	s => HangUp();
 	
                 
-	800IP_11192611_line001 => {
-        	if("${CALLERID(num)}" = "79629574415"){
+	111141 => {
+                if("${CALLERID(num)}" = "79999999999"){
                         HangUp();
                 };
-		Set(company=futbitex);
-                Set(CDR(company)=${company});
-                ifTime(9:00-17:59|mon-fri|*|*) {
-                        jump s@IVR-Working;
-                } else {
-                        jump s@IVR-Holidays;
-                };
-	};
-
-		
-	800IP_11850264_3_line001 => {
-                if("${CALLERID(num)}" = "79629574415"){
-                        HangUp();
-                };
-                Set(company=n1sport);
-                Set(CDR(company)=${company});
-                ifTime(9:00-17:59|mon-fri|*|*) {
-                        jump s@IVR-Working;
-                } else {
-                        jump s@IVR-Holidays;
-                };
-        };
-
-	210041 => {
-                if("${CALLERID(num)}" = "79629574415"){
-                        HangUp();
-                };
-		Set(company=210041);
+		Set(company=111141);
                 Set(CDR(company)=${company});
                 ifTime(9:00-17:59|mon-fri|*|*) {
                         jump s@IVR-Working;
